@@ -1,3 +1,4 @@
+'''
 import time
 
 def calc_time(func):     # func =squareIt , cubeIt
@@ -26,3 +27,18 @@ def cubeIt(nums):
 data=list(range(1,1000001))
 squareIt(data)
 cubeIt(data)
+'''
+def check_value(fn):
+    def inner(*args):
+        if args[1]==0:
+            return "Cannot divide by zero"
+        else:
+            result=fn(*args)
+            return result
+    return inner
+
+@check_value
+def divide(x,y):
+    return x/y
+
+print(divide(10,10))
